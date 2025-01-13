@@ -5,9 +5,7 @@ from utils import load_base_dataset
 def create_data_loader(data_name: str,
                 num_classes: int = 2,
                 batch_size: int = 128,
-                data_root: str = './data/',
-                seed: int = 2025,
-                **kargs):
+                data_root: str = './data/') -> tuple[DataLoader, DataLoader]:
 
     if data_name == 'base':
         trainset, testset = load_base_dataset(data_root=data_root)
@@ -28,7 +26,7 @@ def create_data_loader(data_name: str,
                                    pin_memory=False,
                                    persistent_workers=False)
 
-    test_loader = None
+    test_loader: DataLoader = None
     if testset is not None:
         test_loader = DataLoader(testset,
                                       batch_size=batch_size * 2,

@@ -23,7 +23,6 @@ def get_args():
 
 def main():
     args = get_args()
-    print("here")
 
     print(f'Use checkpoint prefix: {args.ckpt_prefix}')
 

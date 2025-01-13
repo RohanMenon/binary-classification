@@ -3,7 +3,7 @@ import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 
 
-def load_base_dataset(data_root: str = './data/'):
+def load_base_dataset(data_root: str = './data/') -> tuple[datasets.ImageFolder, datasets.ImageFolder]:
 
     transform = transforms.Compose([
         transforms.Resize(256),
